@@ -25,19 +25,21 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 34
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
     defaultConfig {
-        minSdkVersion 16
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion 21
+        targetSdkVersion 34
     }
-    lintOptions {
-        disable 'InvalidPackage'
+
+    compileOptions {
+        // ✅ Set JVM compatibility to Java 17
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
+
     kotlinOptions {
+        // ✅ Set Kotlin to target JVM 17
         jvmTarget = '17'
     }
 }
